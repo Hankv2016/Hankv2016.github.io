@@ -7,6 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
+<script src="search.js"></script>
+
 <body>
     <div class="container">
         <div class="header">
@@ -26,10 +29,10 @@
                 </div>
             </div>
             <div class="header-right">
-                <div class="search">
-                    <input type="text" placeholder="Search">
-                    <button><img src="images/search.png" alt="search"></button>
-                </div>
+                                <div class="search">
+                    <input type="text" id="searchInput" placeholder="Search">
+                    <button onclick="handleSearch()"><img src="images/search.png" alt="search"></button>
+            </div>
                 <div class="social">
                     <ul>
                         <li><a href="#"><img src="images/facebook.png" alt="facebook"></a></li>

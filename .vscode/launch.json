@@ -5,10 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "editor-browser",
+            "type": "vscode-edge-devtools.debug",
+            "request": "launch",
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "msedge",
             "request": "launch",
             "name": "Open index.html",
-            "url": "file:///c%3A/Users/114514/Desktop/github/clone/Hankv2016.github.io/index.html"
+            "file": "c:\\Users\\114514\\Desktop\\github\\clone\\Hankv2016.github.io\\index.html"
         }
     ]
 }
