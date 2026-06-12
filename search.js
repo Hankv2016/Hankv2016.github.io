@@ -1,6 +1,7 @@
 
 function handleSearch() {
     const searchValue = document.getElementById('searchInput').value.trim();
+    string (searchValue)
     if (searchValue === '') {
         alert('请输入搜索内容');
         return;

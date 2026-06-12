@@ -1,0 +1,224 @@
+/* =========================
+   1. CSS 变量（主题核心）
+   ========================= */
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --muted: #666;
+  --border: #eaeaea;
+  --card-bg: #f9fafb;
+  --accent: #0077cc;
+  --radius: 10px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --text: #e6e6e6;
+  --muted: #999;
+  --border: #2a2d36;
+  --card-bg: #161822;
+  --accent: #4db8ff;
+}
+
+/* =========================
+   2. 基础重置
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   3. 布局容器
+   ========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   4. 侧边栏
+   ========================= */
+.sidebar {
+  position: sticky;
+  top: 40px;
+  height: fit-content;
+}
+
+.sidebar h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.sidebar p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.sidebar nav {
+  margin-top: 24px;
+}
+
+.sidebar nav a {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   5. 文章卡片
+   ========================= */
+.post-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.post-card h2 {
+  margin-top: 0;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* =========================
+   6. 标签 / 分类
+   ========================= */
+.tags {
+  margin-top: 12px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+/* =========================
+   7. 文章内容
+   ========================= */
+article img {
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+
+article pre {
+  background: #1e1e1e;
+  color: #dcdcdc;
+  padding: 16px;
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+article code {
+  font-family: Menlo, Monaco, monospace;
+}
+
+/* =========================
+   8. 代码高亮（基础）
+   ========================= */
+pre .keyword { color: #569cd6; }
+pre .string { color: #ce9178; }
+pre .comment { color: #6a9955; }
+pre .function { color: #dcdcaa; }
+
+/* =========================
+   9. 引用
+   ========================= */
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--card-bg);
+  padding: 16px 20px;
+  margin: 24px 0;
+  color: var(--muted);
+}
+
+/* =========================
+   10. 页脚
+   ========================= */
+footer {
+  margin-top: 80px;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* =========================
+   11. 暗色模式切换按钮
+   ========================= */
+.theme-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   12. 响应式优化
+   ========================= */
+@media (max-width: 600px) {
+  .post-card {
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
