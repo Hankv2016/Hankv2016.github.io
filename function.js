@@ -28,3 +28,8 @@ function handleSearch() {
     }
 }
 
+function toggleTheme() {
+  const root = document.documentElement;
+  const theme = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+}

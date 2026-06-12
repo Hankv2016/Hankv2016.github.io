@@ -8,34 +8,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<script src="search.js"></script>
+<script src="function.js"></script>
 
 <body>
+    <body data-theme="light"></body>
     <div class="container">
         <div class="header">
             <div class="header-left">
                 <div class="logo">
-                    <img src="images/logo.png" alt="logo">
+                    <img src="images/favicon.ico" alt="logo">
+                    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
                 </div>
                 <div class="nav">
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
+                        
                 </div>
             </div>
             <div class="header-right">
                                 <div class="search">
                     <input type="text" id="searchInput" placeholder="Search">
-                    <button onclick="handleSearch()"><img src="images/search.png" alt="search"></button>
+                    <button onclick="handleSearch()"><img src="images/search.ico" alt="search"></button>
             </div>
                 <div class="social">
                     <ul>
-                        <li><a href="#"><img src="images/facebook.png" alt="facebook"></a></li>
+                        <li><a href="https://space.bilibili.com/1900612720" target="_blank"><img src="images/bilibili.ico" alt="bilibili"></a></li>
                         <li><a href="#"><img src="images/twitter.png" alt="twitter"></a></li>
                         <li><a href="#"><img src="images/instagram.png" alt="instagram"></a></li>
                         <li><a href="#"><img src="images/linkedin.png" alt="linkedin"></a></li>

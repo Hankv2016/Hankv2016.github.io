@@ -1,61 +1,56 @@
 /* =========================
-   1. CSS 变量（主题核心）
+   1. CSS 变量
    ========================= */
 :root {
-  --bg: #ffffff;
+  --bg: #f5f7fa;
   --text: #222;
   --muted: #666;
-  --border: #eaeaea;
-  --card-bg: #f9fafb;
+  --border: #e5e7eb;
+  --card-bg: rgba(255, 255, 255, 0.65);
   --accent: #0077cc;
-  --radius: 10px;
-  --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 [data-theme="dark"] {
-  --bg: #0f1117;
+  --bg: #0b0f1a;
   --text: #e6e6e6;
   --muted: #999;
   --border: #2a2d36;
-  --card-bg: #161822;
+  --card-bg: rgba(20, 24, 40, 0.65);
   --accent: #4db8ff;
 }
 
 /* =========================
-   2. 基础重置
+   2. 背景（渐变 + 噪点）
    ========================= */
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: var(--font);
-  background: var(--bg);
   color: var(--text);
-  line-height: 1.8;
+  background:
+    linear-gradient(135deg, #f5f7fa, #e4ecf7),
+    url(images/background.jpg);
+  background-size: cover;
   transition: background 0.3s, color 0.3s;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
+[data-theme="dark"] body {
+  background:
+    linear-gradient(135deg, #0b0f1a, #14182a), url("images/background.jpg");
 }
-
-a:hover {
-  text-decoration: underline;
-}
+   
 
 /* =========================
-   3. 布局容器
+   3. 布局
    ========================= */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 24px;
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 48px;
 }
 
@@ -71,59 +66,49 @@ a:hover {
 .sidebar {
   position: sticky;
   top: 40px;
-  height: fit-content;
 }
 
 .sidebar h1 {
+  margin: 0;
   font-size: 1.6rem;
-  margin-bottom: 8px;
 }
 
 .sidebar p {
-  font-size: 0.9rem;
   color: var(--muted);
-}
-
-.sidebar nav {
-  margin-top: 24px;
+  margin: 8px 0 20px;
 }
 
 .sidebar nav a {
   display: block;
   margin-bottom: 10px;
-  font-size: 0.95rem;
 }
 
 /* =========================
-   5. 文章卡片
+   5. 文章卡片（玻璃拟态）
    ========================= */
 .post-card {
+  backdrop-filter: blur(14px);
   background: var(--card-bg);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius);
   padding: 24px;
   margin-bottom: 32px;
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .post-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-}
-
-.post-card h2 {
-  margin-top: 0;
 }
 
 .post-meta {
   font-size: 0.85rem;
   color: var(--muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 /* =========================
-   6. 标签 / 分类
+   6. 标签
    ========================= */
 .tags {
   margin-top: 12px;
@@ -132,93 +117,37 @@ a:hover {
 .tag {
   display: inline-block;
   background: var(--accent);
-  color: white;
+  color: #fff;
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 0.75rem;
   margin-right: 6px;
-  margin-top: 6px;
 }
 
 /* =========================
-   7. 文章内容
-   ========================= */
-article img {
-  max-width: 100%;
-  border-radius: var(--radius);
-}
-
-article pre {
-  background: #1e1e1e;
-  color: #dcdcdc;
-  padding: 16px;
-  border-radius: var(--radius);
-  overflow-x: auto;
-}
-
-article code {
-  font-family: Menlo, Monaco, monospace;
-}
-
-/* =========================
-   8. 代码高亮（基础）
-   ========================= */
-pre .keyword { color: #569cd6; }
-pre .string { color: #ce9178; }
-pre .comment { color: #6a9955; }
-pre .function { color: #dcdcaa; }
-
-/* =========================
-   9. 引用
-   ========================= */
-blockquote {
-  border-left: 4px solid var(--accent);
-  background: var(--card-bg);
-  padding: 16px 20px;
-  margin: 24px 0;
-  color: var(--muted);
-}
-
-/* =========================
-   10. 页脚
+   7. 页脚
    ========================= */
 footer {
-  margin-top: 80px;
-  padding: 30px 0;
   text-align: center;
+  padding: 30px 0;
   font-size: 0.85rem;
   color: var(--muted);
   border-top: 1px solid var(--border);
+  margin-top: 60px;
 }
 
 /* =========================
-   11. 暗色模式切换按钮
+   8. 主题切换按钮
    ========================= */
 .theme-toggle {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 50%;
   width: 44px;
   height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
   cursor: pointer;
   font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* =========================
-   12. 响应式优化
-   ========================= */
-@media (max-width: 600px) {
-  .post-card {
-    padding: 18px;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
 }
