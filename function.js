@@ -33,3 +33,27 @@ function toggleTheme() {
   const theme = root.getAttribute('data-theme');
   root.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.getElementById("postList");
+
+  try {
+    const res = await fetch("/api/posts");
+    const posts = await res.json();
+
+    if (!posts.length) {
+      container.innerHTML = "<p>No posts yet.</p>";
+      return;
+    }
+
+    container.innerHTML = posts.map(p => `
+      <article class="post-card">
+        <h3><a href="/posts/${p.slug}">${p.title}</a></h3>
+        <time>${new Date(p.created_at).toLocaleDateString()}</time>
+        <p>${p.excerpt || ""}</p>
+      </article>
+    `).join("");
+  } catch (e) {
+    container.innerHTML = "<p>Failed to load posts.</p>";
+  }
+});

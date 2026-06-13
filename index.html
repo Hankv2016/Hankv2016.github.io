@@ -1,61 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hankv2016 Blog</title>
+
+    <link rel="icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- JS 放底部，或加 defer -->
+    <script src="/function.js" defer></script>
 </head>
 
-<script src="function.js"></script>
+<body data-theme="light">
 
-<body>
-    <body data-theme="light"></body>
-    <div class="container">
-        <div class="header">
-            <div class="header-left">
-                <div class="logo">
-                    <img src="images/favicon.ico" alt="logo">
-                    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
-                </div>
-                <div class="nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        
-                </div>
+<div class="container">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="/images/favicon.ico" alt="logo" />
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
             </div>
-            <div class="header-right">
-                                <div class="search">
-                    <input type="text" id="searchInput" placeholder="Search">
-                    <button onclick="handleSearch()"><img src="images/search.ico" alt="search"></button>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/posts">Posts</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search..." />
+                <button onclick="handleSearch()">
+                    <img src="/images/search.ico" alt="search" />
+                </button>
             </div>
-                <div class="social">
-                    <ul>
-                        <li><a href="https://space.bilibili.com/1900612720" target="_blank"><img src="images/bilibili.ico" alt="bilibili"></a></li>
-                        <li><a href="#"><img src="images/twitter.png" alt="twitter"></a></li>
-                        <li><a href="#"><img src="images/instagram.png" alt="instagram"></a></li>
-                        <li><a href="#"><img src="images/linkedin.png" alt="linkedin"></a></li>
-                    </ul>
-                </div>
+
+            <div class="social">
+                <ul>
+                    <li><a href="https://space.bilibili.com/1900612720" target="_blank">
+                        <img src="/images/bilibili.ico" alt="bilibili" />
+                    </a></li>
+                    <li><a href="#"><img src="/images/twitter.png" alt="twitter" /></a></li>
+                    <li><a href="#"><img src="/images/instagram.png" alt="instagram" /></a></li>
+                    <li><a href="#"><img src="/images/linkedin.png" alt="linkedin" /></a></li>
+                </ul>
             </div>
         </div>
-        <div class="banner">
-            <div class="banner-text">
-                <h1>WELCOME TO OUR WEBSITE</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                <button>Learn More</button>
-            </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-text">
+            <h1>Welcome to Hankv2016 Blog</h1>
+            <p>Write code, write life.</p>
+            <button onclick="location.href='/posts'">Read Posts</button>
         </div>
-        <div class="content">
-            <div class="content-left">
-                <h2>ABOUT US</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-            </div>
-            <div class="content-right">
-                <img src="images/about.png" alt="about">
-            </div>
+    </section>
+
+    <!-- About -->
+    <section class="content">
+        <div class="content-left">
+            <h2>About Me</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, quod.
+            </p>
         </div>
-    </div>
+        <div class="content-right">
+            <img src="/images/about.png" alt="about" />
+        </div>
+         <section class="posts">
+            <h2>Latest Posts</h2>
+            <div id="postList"></div>
+        </section>
+    </section>
+
+</div>
+
 </body>
 </html>

@@ -1,0 +1,8 @@
+name = "my-blog"
+compatibility_date = "2026-06-13"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "blog-db"
+database_id = "46923ad4-0964-4e57-8a8a-3cf799b3cac2"
+preview_database_id = "46923ad4-0964-4e57-8a8a-3cf799b3cac2"
