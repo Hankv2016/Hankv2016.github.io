@@ -60,3 +60,5 @@ CREATE TABLE IF NOT EXISTS comments (
 
 -- 默认分类
 INSERT OR IGNORE INTO categories (id, name, slug) VALUES (1, '未分类', 'uncategorized');
+
+INSERT INTO posts (title, slug, content, excerpt, status) VALUES ('Hello World', 'hello-world', 'My first post!', 'This is my first blog post.', 'published');
